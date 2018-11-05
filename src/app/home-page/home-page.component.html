@@ -1,0 +1,12 @@
+<div *ngIf="flights" class="container">
+  <div *ngFor="let flight of flights.acList">
+    <div class="card text-center col-xs-12 col-md-6 col-lg-4" style="width: 18rem;">
+        <img class="card-img-top" [src]="'../../assets/images/09a0e78cdc722c229e4527506463f8f2.png'" alt="Plane image">
+        <div class="card-body">
+          <h5 class="card-title">{{flight.Man}}</h5>
+          <p class="card-text">Altitude: {{flight.Alt}}</p> 
+          <a href="#" class="btn btn-primary">Detailes</a>
+        </div> 
+      </div>
+    </div>  
+  </div>

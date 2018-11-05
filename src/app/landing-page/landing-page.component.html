@@ -1,2 +1,20 @@
-<h1 *ngIf="!deniedGeolocation">Welcome to Air Traffic</h1>
-<h1 *ngIf="deniedGeolocation">{{deniedGeolocation}}</h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to Air Traffic</h1>
+    <p class="lead">Application that allow you to follow air traffic on you're location</p>
+    <hr class="my-4">
+    <div *ngIf="geolocation">
+      <p>Please use next button below to contionue to app</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" routerLink='/flights' role="button">Next</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!geolocation">
+  <div class="alert alert-danger" role="alert">
+      <h3>Please allow geolocation in you're browser!</h3>
+      <p>You cant continue without it...</p>
+  </div>
+</div>

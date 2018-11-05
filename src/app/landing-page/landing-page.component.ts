@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PositionService } from '../services/position.service'
 
 @Component({
   selector: 'app-landing-page',
@@ -7,27 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public postionService: PositionService) { }
 
-  currentGeolocation: Object = {}
-  deniedGeolocation: String = ''
+  geolocation: Boolean
 
-  getGeolocation() {
-    if(window.navigator && window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(
-        position => {
-          this.currentGeolocation = position
-          console.log(position)
-        },
-        error => {
-          this.deniedGeolocation = "You have to allow geolocation to use this app"
-        }
-        )
-    }
+  private allowedGeolocation(): void {
+    this.postionService.getGeolocation()
+    .subscribe(res => {
+      this.geolocation = res.geolocation
+    })
   }
 
   ngOnInit() {
-    this.getGeolocation()
+    this.allowedGeolocation()
+
   }
 
 }
