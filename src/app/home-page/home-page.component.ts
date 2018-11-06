@@ -16,13 +16,17 @@ export class HomePageComponent implements OnInit {
 
     private flights: any[]
 
-  getFlights(): void {
-    this.positionService.getGeolocation()
+  private getFlights(): void {
+      this.positionService.getGeolocation()
       .subscribe(position => {
-        const { latitude, longitude } : { latitude: Number, longitude: Number } = position.position.coords
-        this.airService.getFlights(latitude, longitude)
-          .subscribe(flights => this.flights = flights)
-      })
+          const { latitude, longitude } : { latitude: Number, longitude: Number } = position.position.coords
+          this.airService.getFlights(latitude, longitude)
+            .subscribe(flights => {
+              const serializedFlights = JSON.stringify(flights)
+              localStorage.setItem('flights', serializedFlights)
+              return this.flights = flights
+            })
+        })
   }
 
   ngOnInit() {

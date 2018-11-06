@@ -1,0 +1,15 @@
+<div *ngIf="flightDetails" class="container">
+    <div class="card text-center">
+        <div class="card-header">
+          Flight details
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{flightDetails.Mdl}}</h5>
+          <p class="card-text">From {{flightDetails.From}} to {{flightDetails.To}}</p>
+          <img src="../../assets/images/QXaGdGww_400x400.png" alt="Company logo">
+        </div>
+        <div class="card-footer text-muted">
+          <p>Country: {{flightDetails.Cou}}</p>
+        </div>
+      </div>
+</div>
