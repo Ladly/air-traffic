@@ -16,24 +16,34 @@ export class HomePageComponent implements OnInit {
 
   private flights: any[] 
 
+  private flightsSubscribeAndSort(latitude, longitude): void {
+    this.airService.getFlights(latitude, longitude)
+    .subscribe(flights => {
+      flights.acList.sort((a, b) => {
+        return a.Alt - b.Alt;
+      });
+      const serializedFlights = JSON.stringify(flights)
+      sessionStorage.setItem('flights', serializedFlights)
+      return this.flights = flights
+    })
+  }
+
   private getFlights(): void {
       this.positionService.getGeolocation()
       .subscribe(position => {
           const { latitude, longitude } : { latitude: Number, longitude: Number } = position.position.coords
-          this.airService.getFlights(latitude, longitude)
-            .subscribe(flights => {
-              flights.acList.sort((a, b) => {
-                return a.Alt - b.Alt;
-              });
-              const serializedFlights = JSON.stringify(flights)
-              localStorage.setItem('flights', serializedFlights)
-              return this.flights = flights
-            })
+          this.flightsSubscribeAndSort(latitude, longitude)
         })
   }
 
   ngOnInit() {
-    this.getFlights()
-  }
+    if(!sessionStorage.getItem('flights')) {
+      setInterval(() => this.getFlights(), 120000)
+    } else {
+    const deserializedFlights = JSON.parse(sessionStorage.getItem('flights'))
+    this.flights = deserializedFlights
+    }
 
+  }
 }
+

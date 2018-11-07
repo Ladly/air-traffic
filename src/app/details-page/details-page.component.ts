@@ -20,7 +20,7 @@ export class DetailsPageComponent implements OnInit {
   private displayData(): void {
     this.activatedRoute.params
       .subscribe(params => this.flightId = params['id'])
-    const deserialisedFlights = JSON.parse(localStorage.getItem('flights'))
+    const deserialisedFlights = JSON.parse(sessionStorage.getItem('flights'))
     this.flightDetails = deserialisedFlights.acList.find(flight => {
       return flight.Icao === this.flightId
     })
