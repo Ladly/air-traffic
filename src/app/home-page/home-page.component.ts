@@ -22,6 +22,9 @@ export class HomePageComponent implements OnInit {
           const { latitude, longitude } : { latitude: Number, longitude: Number } = position.position.coords
           this.airService.getFlights(latitude, longitude)
             .subscribe(flights => {
+              flights.acList.sort((a, b) => {
+                return a.Alt - b.Alt;
+              });
               const serializedFlights = JSON.stringify(flights)
               localStorage.setItem('flights', serializedFlights)
               return this.flights = flights
