@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
     private positionService: PositionService
     ) { }
 
-    private flights: any[]
+  private flights: any[] 
 
   private getFlights(): void {
       this.positionService.getGeolocation()
