@@ -14,7 +14,7 @@ export class DetailsPageComponent implements OnInit {
     private airService: AirServiceService
     ) { }
 
-  private flightDetails: Object
+  public flightDetails: Object
   private flightId: Number
 
   private displayData(): void {

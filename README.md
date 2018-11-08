@@ -1,4 +1,4 @@
-# ShowsApp
+# Air traffic
 
 Application that displays aircrafts at your location.
 
@@ -12,19 +12,21 @@ Install dependencies: run `npm install`.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-For deployment on gh-pages to display local images go to home-page.component.html and details-page.component.html and  
+For deployment on gh-pages to display local images go to home-page.component.html and details-page.component.html and change "../../assets/images/(img)" to "/air-traffic/assets/images/(img)" 
 
 ## Infrastructure decisions and limitations
 
 This project is created for practical purpose and like that it is suitable to be hosted on gh pages.
 
-Endpoint used is VirtualRadar:
+Endpoint used is VirtualRadar and Clearbit:
 
-- [Documentation](http://www.virtualradarserver.co.uk/Documentation/Formats/AircraftList.aspx)
+- [Virtuel Radar Documentation](http://www.virtualradarserver.co.uk/Documentation/Formats/AircraftList.aspx)
+- [Clearbit Documentation](https://clearbit.com/docs#logo-api)
 
 - http://www.virtualradarserver.co.uk/Default.aspx
+- https://clearbit.com/logo 
 
-Important to notice: this api is have cors. I used [cors-anywhere](https://cors-anywhere.herokuapp.com/) to display data.
+Important to notice: this api is using cors. I used [cors-anywhere](https://cors-anywhere.herokuapp.com/) to display data.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 

@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
     private positionService: PositionService
     ) { }
 
-  private flights: any[] 
+  public flights: any[] 
 
   private flightsSubscribeAndSort(latitude, longitude): void {
     this.airService.getFlights(latitude, longitude)
