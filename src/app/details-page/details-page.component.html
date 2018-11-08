@@ -6,8 +6,16 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{flightDetails.Mdl}}</h5>
-          <p class="card-text">From {{flightDetails.From}} to {{flightDetails.To}}</p>
-          <img src="../../assets/images/QXaGdGww_400x400.png" alt="Company logo">
+          <p 
+            class="card-text" 
+            *ngIf="flightDetails.From && flightDetails.To"
+            >
+            From {{flightDetails.From}} to {{flightDetails.To}}
+          </p>
+          <p class="card-text" *ngIf="!flightDetails.From && !flightDetails.To">Flight origin and destination are not available for this flight</p>
+          <img
+            src="https://logo.clearbit.com/{{flightDetails.Op | removeWhitespace}}.com" 
+            onError="this.src='../../assets/images/default.png'">
         </div>
         <div class="card-footer text-muted">
           <p>Country: {{flightDetails.Cou}}</p>

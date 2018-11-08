@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
+import { RemoveWhitespacePipe } from './pipes/remove-whitespace.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     HomePageComponent,
-    DetailsPageComponent
+    DetailsPageComponent,
+    RemoveWhitespacePipe
   ],
   imports: [
     BrowserModule,

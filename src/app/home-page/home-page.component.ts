@@ -28,6 +28,11 @@ export class HomePageComponent implements OnInit {
     })
   }
 
+  private clearStorageAndGetNewFlights(): void {
+    sessionStorage.removeItem('flights')
+    this.getFlights()
+  }
+
   private getFlights(): void {
       this.positionService.getGeolocation()
       .subscribe(position => {
@@ -38,6 +43,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     if(!sessionStorage.getItem('flights')) {
+      this.getFlights()
       setInterval(() => this.getFlights(), 120000)
     } else {
     const deserializedFlights = JSON.parse(sessionStorage.getItem('flights'))
