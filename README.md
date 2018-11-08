@@ -1,27 +1,43 @@
-# AirTraffic
+# ShowsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+Application that displays aircrafts at your location.
 
-## Development server
+[Open app](https://ladly.github.io/air-traffic/)
+
+## Getting started
+
+Clone repo: git clone https://github.com/Ladly/air-taffic.git.
+
+Install dependencies: run `npm install`.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+For deployment on gh-pages to display local images go to home-page.component.html and details-page.component.html and  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Infrastructure decisions and limitations
 
-## Build
+This project is created for practical purpose and like that it is suitable to be hosted on gh pages.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Endpoint used is VirtualRadar:
 
-## Running unit tests
+- [Documentation](http://www.virtualradarserver.co.uk/Documentation/Formats/AircraftList.aspx)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- http://www.virtualradarserver.co.uk/Default.aspx
 
-## Running end-to-end tests
+Important to notice: this api is have cors. I used [cors-anywhere](https://cors-anywhere.herokuapp.com/) to display data.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
-## Further help
+More details about project progress can be found on trello link below.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Project management
+
+I use [trello](https://trello.com/b/JZYdAwP3).
+
+## Authors
+
+[Vuk Ivanovic](https://www.linkedin.com/in/vuk-ivanovic/).
+
+## Licence
+
+This project is licensed under MIT licence
